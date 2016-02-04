@@ -11,6 +11,14 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->version();
+$app->group(['prefix' => 'api'], function() use ($app) {
+
+    $app->get('/ping', function() use ($app) {
+        return response()->json('pong');
+    });
+
+    $app->post('/webshot', ['middleware' => 'auth', 'uses' => 'App\Http\Controllers\WebshotController@store']);
+
 });
+
+

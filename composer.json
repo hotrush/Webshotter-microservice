@@ -6,9 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/lumen-framework": "5.2.*",
+        "laravel/lumen-framework": "5.1.*",
         "vlucas/phpdotenv": "~2.2",
-        "mlntn/lumen-artisan-serve": "~1"
+        "hotrush/webshotter": "^0.1.1",
+        "league/flysystem": "^1.0",
+        "league/flysystem-aws-s3-v3": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
