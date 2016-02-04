@@ -3,7 +3,7 @@
 
 # Webshotter microservice
 
-Simpe RESTful microservice with Lumen and hotrush/Webshotter package that creates pages screenshots and store it locally / s3 / rackspace (last on TBD)
+Simpe RESTful microservice with Lumen and [hotrush/Webshotter](https://github.com/hotrush/Webshotter) package that creates pages screenshots and store it locally / s3 / rackspace (last one TBD)
 
 ## Installation
 
