@@ -19,6 +19,7 @@ composer install
 ## Usage
 
 Ping-pong
+
 ```GET /api/ping```
 
 Webshot creating
