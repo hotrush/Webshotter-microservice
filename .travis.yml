@@ -1,0 +1,26 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - nightly
+  - hhvm
+
+matrix:
+    allow_failures:
+        - php: 7.0
+        - php: nightly
+        - php: hhvm
+
+before_install:
+  - wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu52_52.1-3ubuntu0.4_amd64.deb
+  - sudo dpkg -i libicu52_52.1-3ubuntu0.4_amd64.deb
+  - cp .env.testing .env
+
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+
+script: phpunit
