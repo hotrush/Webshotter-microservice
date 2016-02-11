@@ -5,6 +5,9 @@
 
 Simpe RESTful microservice with Lumen and [hotrush/Webshotter](https://github.com/hotrush/Webshotter) package that creates pages screenshots and store it locally / s3 / rackspace (last one TBD)
 
+## Changelog
+***0.1.1*** - added timeout param
+
 ## Installation
 
 ```
@@ -32,7 +35,8 @@ POST /api/webshot?key=YOUR_ACCESS_KEY
     "height": 800, // optional, integer, default 800
     "full_page": 0, // optional, 1 or 0
     "filename": "test", // optional, result file name without extension, alpha_dash
-    "path": "2016/01/01" // optional, path to save result file
+    "path": "2016/01/01", // optional, path to save result file
+    "timeout": 10 // in seconds
 }
 ```
 And this will return next:
@@ -40,6 +44,12 @@ And this will return next:
 {
     "path": "2016/01/01/test.jpg",
     "url": "http://YOUR_SITE/webshots/2016/01/01/test.jpg" // or for example for s3 https://s3-eu-west-1.amazonaws.com/your-bucket/2016/01/01/test.jpg
+}
+```
+If timeout has been reached next will be return (with 500 status code):
+```
+{
+    "message": "Link timeout."
 }
 ```
 

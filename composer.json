@@ -8,7 +8,7 @@
         "php": ">=5.5.9",
         "laravel/lumen-framework": "5.1.*",
         "vlucas/phpdotenv": "~2.2",
-        "hotrush/webshotter": "^0.1.1",
+        "hotrush/webshotter": "^0.1.3",
         "league/flysystem": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0"
     },

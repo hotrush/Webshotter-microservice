@@ -73,4 +73,31 @@ class WebshotTest extends TestCase
         rmdir($this->app->basePath('public/webshots/2016/00'));
         rmdir($this->app->basePath('public/webshots/2016'));
     }
+
+    /**
+     *
+     * @return void
+     */
+    public function testWebshotTimeout()
+    {
+        $this->post('/api/webshot?key=123123123', [
+            'url' => 'http://httpbin.org/delay/10',
+            'extension' => 'png',
+            'width' => 1200,
+            'height' => 800,
+            'full_page' => 0,
+            'filename' => 'test',
+            'path' => '2016/00/00',
+            'timeout' => 1
+        ]);
+
+        $this->assertEquals($this->response->status(), 500);
+        $this->assertEquals($this->response->headers->get('Content-Type'), 'application/json');
+        $this->assertEquals(
+            $this->response->getContent(),
+            json_encode([
+                'message' => 'Link timeout.'
+            ])
+        );
+    }
 }

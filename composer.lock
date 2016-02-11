@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fdf360d4bec898b1d2c82018c4122d02",
-    "content-hash": "475a988550111cf987fa4c9e48320d43",
+    "hash": "0463351147e67c1f65de0429ccca24ea",
+    "content-hash": "96f32642da72d3df840a97b252a17595",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.14.2",
+            "version": "3.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2970cb63e7b7b37dd8c07a4fa4e4e18a110ed4e2"
+                "reference": "cf218650881cd79f7bfec669996cd3aff22528d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2970cb63e7b7b37dd8c07a4fa4e4e18a110ed4e2",
-                "reference": "2970cb63e7b7b37dd8c07a4fa4e4e18a110ed4e2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/cf218650881cd79f7bfec669996cd3aff22528d1",
+                "reference": "cf218650881cd79f7bfec669996cd3aff22528d1",
                 "shasum": ""
             },
             "require": {
@@ -40,7 +40,8 @@
                 "ext-simplexml": "*",
                 "ext-spl": "*",
                 "nette/neon": "^2.3",
-                "phpunit/phpunit": "~4.0|~5.0"
+                "phpunit/phpunit": "~4.0|~5.0",
+                "psr/cache": "^1.0"
             },
             "suggest": {
                 "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
@@ -84,7 +85,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-01-28 21:33:18"
+            "time": "2016-02-09 21:59:27"
         },
         {
             "name": "danielstjules/stringy",
@@ -382,16 +383,16 @@
         },
         {
             "name": "hotrush/webshotter",
-            "version": "0.1.2",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hotrush/Webshotter.git",
-                "reference": "59c5f66c62f481e7be92349860b821f06375cbf3"
+                "reference": "2bf8395a251fada9a57a8fc09392ece9d9a45b92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hotrush/Webshotter/zipball/59c5f66c62f481e7be92349860b821f06375cbf3",
-                "reference": "59c5f66c62f481e7be92349860b821f06375cbf3",
+                "url": "https://api.github.com/repos/hotrush/Webshotter/zipball/2bf8395a251fada9a57a8fc09392ece9d9a45b92",
+                "reference": "2bf8395a251fada9a57a8fc09392ece9d9a45b92",
                 "shasum": ""
             },
             "require": {
@@ -436,7 +437,7 @@
                 "webpage",
                 "webshot"
             ],
-            "time": "2016-02-03 15:46:50"
+            "time": "2016-02-11 12:30:52"
         },
         {
             "name": "illuminate/auth",
@@ -2028,16 +2029,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.6",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0"
+                "reference": "b0e69d10852716b2ccbdff69c75c477637220790"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/e6f80ab77885151908d0ec743689ca700886e8b0",
-                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b0e69d10852716b2ccbdff69c75c477637220790",
+                "reference": "b0e69d10852716b2ccbdff69c75c477637220790",
                 "shasum": ""
             },
             "require": {
@@ -2072,7 +2073,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-01-29 16:19:52"
+            "time": "2016-02-06 03:52:05"
         },
         {
             "name": "psr/http-message",

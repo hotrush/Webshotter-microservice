@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use hotrush\Webshotter\Exception\TimeoutException;
 use Illuminate\Http\Request;
 use hotrush\Webshotter\Webshot;
 use Illuminate\Support\Facades\Storage;
@@ -24,6 +25,7 @@ class WebshotController extends Controller
             'height' => 'integer',
             'full_page' => 'boolean',
             'filename' => 'alpha_dash',
+            'timeout' => 'integer',
             'path' => 'string',
         ]);
 
@@ -39,28 +41,41 @@ class WebshotController extends Controller
         $tmpPath = storage_path('app');
 
         $webshot = new Webshot(env('PHANTOM_JS_BIN'));
-        $tmpFile = $webshot
-            ->setUrl($request->input('url'))
-            ->setWidth($request->input('width', 1200))
-            ->setHeight($request->input('height', 800))
-            ->setFullPage($request->input('full_page', false))
-            ->{'saveTo'.ucfirst($request->input('extension', 'jpg'))}(
-                $filename,
-                $tmpPath
+
+        try {
+
+            $tmpFile = $webshot
+                ->setUrl($request->input('url'))
+                ->setWidth($request->input('width', 1200))
+                ->setHeight($request->input('height', 800))
+                ->setFullPage($request->input('full_page', false))
+                ->setTimeout($request->input('timeout', 30))
+                ->{'saveTo'.ucfirst($request->input('extension', 'jpg'))}(
+                    $filename,
+                    $tmpPath
+                );
+
+            // Put file to it's destination
+            Storage::put(
+                $fullPath,
+                file_get_contents($tmpFile)
             );
 
-        // Put file to it's destination
-        Storage::put(
-            $fullPath,
-            file_get_contents($tmpFile)
-        );
+            unlink($tmpFile);
 
-        unlink($tmpFile);
+            return response()->json([
+                'path' => $fullPath,
+                'url' => app('filesystemPublicUrl')->publicUrl(null, $fullPath),
+            ]);
 
-        return response()->json([
-            'path' => $fullPath,
-            'url' => app('filesystemPublicUrl')->publicUrl(null, $fullPath),
-        ]);
+        } catch (TimeoutException $e) {
+
+            return response()->json([
+                'message' => 'Link timeout.',
+            ], 500);
+
+        }
+
     }
 }
 
